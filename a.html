@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>西条町ユニバーサル案内</title>
+
+<style>
+    body {
+        font-family: "Noto Sans JP", sans-serif;
+        text-align: center;
+        padding: 20px;
+        background: #f7f7f7;
+    }
+    h1 { font-size: 36px; margin-bottom: 10px; }
+    h2 { font-size: 30px; margin-top: 40px; }
+
+    /* 酒蔵カード */
+    .brewery {
+        background: white;
+        padding: 20px;
+        margin: 20px auto;
+        width: 90%;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        text-align: left;
+        max-width: 800px;
+    }
+    .brewery h3 { font-size: 26px; margin-bottom: 8px; }
+    .brewery p { font-size: 18px; line-height: 1.6; }
+    .brewery button {
+        font-size: 18px;
+        padding: 8px 16px;
+        background: #ff9800;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    /* イラストマップ */
+    #mapArea {
+        position: relative;
+        width: 600px;
+        height: 450px;
+        margin: 20px auto 10px;
+        background-image: url("map_saijo.png"); /* あなたの地図画像 */
+        background-size: cover;
+        border: 2px solid #333;
+        border-radius: 12px;
+    }
+
+    /* 現在地マーカー */
+    #me {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: blue;
+        border-radius: 50%;
+        border: 3px solid white;
+        transform: translate(-50%, -50%);
+    }
+
+    /* 酒蔵アイコン（赤丸） */
+    .breweryIcon {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background: red;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid white;
+        transform: translate(-50%, -50%);
+    }
+</style>
+</head>
+<body>
+
+<h1>西条町 ユニバーサル案内</h1>
+
+<h2>西条エリア イラストマップ</h2>
+
+<div id="mapArea">
+    <div id="me"></div>
+
+    <!-- 酒蔵アイコン（600×450座標） -->
+    <div class="breweryIcon" style="left:420px; top:260px;" onclick="location.href='kamoizumi.html'"></div>
+    <div class="breweryIcon" style="left:385px; top:220px;" onclick="location.href='kamotsuru.html'"></div>
+    <div class="breweryIcon" style="left:330px; top:240px;" onclick="location.href='hakubotan.html'"></div>
+    <div class="breweryIcon" style="left:300px; top:310px;" onclick="location.href='saijotsuru.html'"></div>
+    <div class="breweryIcon" style="left:260px; top:330px;" onclick="location.href='sanyotsuru.html'"></div>
+    <div class="breweryIcon" style="left:380px; top:350px;" onclick="location.href='fukubijin.html'"></div>
+    <div class="breweryIcon" style="left:360px; top:280px;" onclick="location.href='kirei.html'"></div>
+</div>
+
+<p style="font-size:14px; color:#555;">※ 赤い丸を押すと、それぞれの酒蔵紹介ページへ移動します。</p>
+
+<h2>西条駅から行ける7つの酒蔵</h2>
+
+<!-- 1. 賀茂鶴 -->
+<div class="brewery">
+    <h3>1. 賀茂鶴酒造</h3>
+    <p>
+        創業1623年。西条を代表する老舗酒蔵で、伝統的な手造りと最新技術を融合した酒造りを行っています。<br>
+        代表銘柄「賀茂鶴」は華やかな香りとキレのある味わいが特徴で、国内外のコンテストでも高い評価を受けています。
+    </p>
+    <button onclick="location.href='kamotsuru.html'">詳細ページへ</button>
+</div>
+
+<!-- 2. 白牡丹 -->
+<div class="brewery">
+    <h3>2. 白牡丹酒造</h3>
+    <p>
+        創業1675年。300年以上の歴史を持つ名門酒蔵です。<br>
+        「白牡丹」はまろやかで飲みやすく、食事に寄り添う“日常酒”として地元の人々に長く愛されています。
+    </p>
+    <button onclick="location.href='hakubotan.html'">詳細ページへ</button>
+</div>
+
+<!-- 3. 西條鶴 -->
+<div class="brewery">
+    <h3>3. 西條鶴醸造</h3>
+    <p>
+        創業1894年。昔ながらの手造りにこだわり、少量生産で丁寧に仕込む酒蔵です。<br>
+        深い旨味とコクのある味わいが特徴で、じっくり味わいたい日本酒として酒好きに根強い人気があります。
+    </p>
+    <button onclick="location.href='saijotsuru.html'">詳細ページへ</button>
+</div>
+
+<!-- 4. 賀茂泉 -->
+<div class="brewery">
+    <h3>4. 賀茂泉酒造</h3>
+    <p>
+        創業1912年。自然醸造を大切にし、米の旨味をしっかり引き出す酒造りが特徴です。<br>
+        「賀茂泉」は芳醇でまろやかな味わいで、和食との相性も良く、ゆっくりと楽しめるお酒です。
+    </p>
+    <button onclick="location.href='kamoizumi.html'">詳細ページへ</button>
+</div>
+
+<!-- 5. 山陽鶴 -->
+<div class="brewery">
+    <h3>5. 山陽鶴酒造</h3>
+    <p>
+        創業1897年。コクとキレを両立した味わいが魅力の酒蔵です。<br>
+        昔ながらの製法を守りつつ、現代の嗜好にも合う日本酒を追求し続けています。
+    </p>
+    <button onclick="location.href='sanyotsuru.html'">詳細ページへ</button>
+</div>
+
+<!-- 6. 福美人 -->
+<div class="brewery">
+    <h3>6. 福美人酒造</h3>
+    <p>
+        創業1917年。全国新酒鑑評会で多数の受賞歴を持つ実力派の酒蔵です。<br>
+        「福美人」は香りと旨味のバランスが良く、飲み飽きしない味わいが特徴です。
+    </p>
+    <button onclick="location.href='fukubijin.html'">詳細ページへ</button>
+</div>
+
+<!-- 7. 亀齢 -->
+<div class="brewery">
+    <h3>7. 亀齢酒造</h3>
+    <p>
+        創業1856年。辛口でキレのある酒が人気の酒蔵です。<br>
+        「亀齢」はすっきりとした飲み口で、食中酒として多くのファンに支持されています。
+    </p>
+    <button onclick="location.href='kirei.html'">詳細ページへ</button>
+</div>
+
+<script>
+// 地図の緯度経度範囲（西条エリアのざっくり範囲）
+const map = {
+    topLat: 34.4300,
+    bottomLat: 34.4200,
+    leftLng: 132.7350,
+    rightLng: 132.7500
+};
+
+const mapWidth = 600;
+const mapHeight = 450;
+
+const me = document.getElementById("me");
+
+// 現在地を監視して動かす
+if (navigator.geolocation) {
+    navigator.geolocation.watchPosition((pos) => {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+
+        const x = ((lng - map.leftLng) / (map.rightLng - map.leftLng)) * mapWidth;
+        const y = ((map.topLat - lat) / (map.topLat - map.bottomLat)) * mapHeight;
+
+        me.style.left = x + "px";
+        me.style.top = y + "px";
+    }, () => {
+        console.log("位置情報が取得できませんでした");
+    });
+} else {
+    console.log("この端末では位置情報が使えません");
+}
+</script>
+
+</body>
+</html>

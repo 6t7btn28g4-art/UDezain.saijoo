@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>東広島市西条町ユニバーサル音声案内</title>
+
+    <style>
+        #startBtn {
+            font-size: 32px;
+            padding: 20px 40px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bgm" src="saijo.MP3" loop></audio>
+
+    <button id="startBtn">案内を開始</button>
+
+    <script>
+        const bgm = document.getElementById("bgm");
+        const btn = document.getElementById("startBtn");
+
+        let isPlaying = false; // 再生中かどうか
+
+        btn.addEventListener("click", () => {
+
+            if (!isPlaying) {
+                // ▶ 再生
+                bgm.currentTime = 0;
+                bgm.volume = 1;
+
+                bgm.play().then(() => {
+                    isPlaying = true;
+                    btn.textContent = "lets go！";
+                }).catch(err => {
+                    alert("音声が再生できません。ファイル名 saijo.MP3 が正しいか確認してください。");
+                    console.log(err);
+                });
+
+            } else {
+                // ⏹ 停止
+                bgm.pause();
+                bgm.currentTime = 0;
+                isPlaying = false;
+
+                // ★ 音を止めたらページ遷移 ★
+                window.location.href = "a.html";
+            }
+        });
+
+        // 🔻 タブを閉じたら音を止める
+        window.addEventListener("pagehide", () => {
+            bgm.pause();
+            bgm.currentTime = 0;
+        });
+    </script>
+
+</body>
+</html>
+
+

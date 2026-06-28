@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>賀茂鶴酒造 案内</title>
+
+<style>
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    text-align: center;
+    background: #f7f7f7;
+    padding: 20px;
+}
+
+#mapArea {
+    position: relative;
+    width: 600px;
+    height: 450px;
+    margin: 20px auto;
+    background-image: url("map_saijo.png");
+    background-size: cover;
+    border: 2px solid #333;
+    border-radius: 12px;
+}
+
+/* 現在地マーカー */
+#me {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: blue;
+    border-radius: 50%;
+    border: 3px solid white;
+    transform: translate(-50%, -50%);
+}
+
+/* 酒蔵マーカー（固定位置） */
+#target {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background: red;
+    border-radius: 50%;
+    border: 2px solid white;
+    transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+
+<h1>賀茂鶴酒造</h1>
+
+<div id="mapArea">
+    <div id="me"></div>
+
+    <!-- 賀茂鶴の位置（600×450座標） -->
+    <div id="target" style="left:350px; top:300px;"></div>
+</div>
+
+<script>
+// 地図の緯度経度範囲
+const map = {
+    topLat: 34.4300,
+    bottomLat: 34.4200,
+    leftLng: 132.7350,
+    rightLng: 132.7500
+};
+
+const mapWidth = 385;
+const mapHeight = 220;
+
+const me = document.getElementById("me");
+
+// 現在地を監視
+navigator.geolocation.watchPosition((pos) => {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+
+    const x = ((lng - map.leftLng) / (map.rightLng - map.leftLng)) * mapWidth;
+    const y = ((map.topLat - lat) / (map.topLat - map.bottomLat)) * mapHeight;
+
+    me.style.left = x + "px";
+    me.style.top = y + "px";
+
+}, () => {
+    alert("位置情報が取得できません");
+});
+</script>
+
+</body>
+</html>
+
+
